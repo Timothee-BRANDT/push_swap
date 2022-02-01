@@ -71,8 +71,8 @@ t_list	*create_a(char **tab)
 	int	i;
 
 	i = 0;
-	a =	 ft_lstnew(tab[i]);
+	a =	 ft_lstnew(ft_atoi(tab[i]));
 	while (tab[++i])
-		ft_lstadd_back(&a, ft_lstnew(tab[i]));
+		ft_lstadd_back(&a, ft_lstnew(ft_atoi(tab[i])));
 	return (a);
 }

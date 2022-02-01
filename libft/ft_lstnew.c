@@ -6,13 +6,13 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 11:37:52 by tbrandt           #+#    #+#             */
-/*   Updated: 2021/10/29 14:23:06 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/01 16:48:52 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*list;
 

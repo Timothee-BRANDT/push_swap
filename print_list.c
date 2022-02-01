@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-void	print_content(void *content)
+void	print_content(int content)
 {
-	printf("%d\n", *(int *)content); 
+	printf("%d\n", content); 
 }
 
 void	print_list_a(t_list *a)
