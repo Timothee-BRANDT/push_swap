@@ -30,6 +30,8 @@ void	swap_both(t_list **a, t_list **b)
 {
 	t_list *tmp;
 
+	if (!*a || !*b)
+		return ;
 	ft_putstr("ss\n");
 	if(*a)
 	{

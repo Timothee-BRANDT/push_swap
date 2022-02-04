@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_error.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/02 16:46:37 by tbrandt           #+#    #+#             */
+/*   Updated: 2022/02/03 22:26:32 by tbrandt          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	is_digit(char *str)
@@ -18,10 +30,9 @@ int	is_digit(char *str)
 
 int	is_int(char *str)
 {
-	long long nb;
-
-	nb = ft_atoll(str);
-	if (nb < INT_MIN || nb > INT_MAX)
+	if (ft_strlen(str) > 10 || ft_strcmp(str, "-2147483649") == 0)
+		return (1);
+	if (ft_strcmp(str, "2147483648") == 0 || ft_strcmp(str, "2147483649") == 0)
 		return (1);
 	return (0);
 }
@@ -63,16 +74,4 @@ int	check_error(char **tab)
 		i++;
 	}
 	return (0);
-}
-
-t_list	*create_a(char **tab)
-{
-	t_list *a;
-	int	i;
-
-	i = 0;
-	a =	 ft_lstnew(ft_atoi(tab[i]));
-	while (tab[++i])
-		ft_lstadd_back(&a, ft_lstnew(ft_atoi(tab[i])));
-	return (a);
 }

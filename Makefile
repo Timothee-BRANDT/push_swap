@@ -6,7 +6,7 @@
 #    By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 15:11:17 by tbrandt           #+#    #+#              #
-#    Updated: 2021/11/18 13:11:25 by tbrandt          ###   ########.fr        #
+#    Updated: 2022/02/03 22:06:21 by tbrandt          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,13 @@ CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 NAME	=	push_swap
 
-SRC		=	main.c check_error.c print_list.c swap.c push.c
+SRC		=	main.c			\
+			check_error.c	\
+			print_list.c	\
+			swap.c			\
+			push.c			\
+			rotate.c		\
+			create_list.c	\
 
 OBJ		=	$(SRC:%.c=%.o)
 
