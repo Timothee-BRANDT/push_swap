@@ -24,6 +24,6 @@ void	push_b(t_list **a, t_list **b);
 void	rotate_a(t_list **a);
 void	rotate_b(t_list **a);
 void	non_negative(t_list **list);
-t_list	*copy_list(t_list **list);
+char	**change_number(char **tab);
 
 #endif

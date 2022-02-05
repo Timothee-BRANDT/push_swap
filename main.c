@@ -29,7 +29,7 @@ char **make_tab(int argc, char *argv[])
 		i++;
 		j++;
 	}
-	tab[i] = NULL;
+	tab[j] = NULL;
 	return (tab);
 }
 
@@ -52,15 +52,11 @@ int main(int argc, char *argv[])
 		tab = ft_split(argv[1], ' ');
 		if (check_error(tab))
 			return (on_error("Error\n", 0));
+		change_number(tab);
 		int i = 0;
-		while(i < 3)
+		while(i < 5)
 			printf("%s\n", tab[i++]);
-		swap_sort(tab);
 		printf("\n");
-		printf("\n");
-		i = 0;
-		while(i < 3)
-			printf("%s\n", tab[i++]);
 		//a = create_a(tab);
 	//	print_list_a(a);
 	//	printf("\n");
@@ -71,15 +67,11 @@ int main(int argc, char *argv[])
 		tab = make_tab(argc, argv);
 		if (check_error(tab))
 			return (on_error("Error\n", 0));
+		change_number(tab);
 		int i = 0;
-		while(i < 4)
+		while(i < 5)
 			printf("%s\n", tab[i++]);
-		swap_sort(tab);
 		printf("\n");
-		printf("\n");
-		i = 0;
-		while(i < 4)
-			printf("%s\n", tab[i++]);
 		//a = create_a(tab);
 	//	print_list_a(a);
 	//	printf("\n");

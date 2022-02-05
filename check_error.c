@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:37 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/03 22:26:32 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/05 15:42:22 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ int	check_error(char **tab)
 	{
 		if (is_digit(tab[i]))
 			return (1);
-		else if (is_int(tab[i]))
+		if (is_int(tab[i]))
 			return (1);
-		else if (is_double(tab))
+		if (is_double(tab))
 			return (1);
 		i++;
 	}

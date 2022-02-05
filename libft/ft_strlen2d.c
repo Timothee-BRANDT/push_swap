@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strlen2d.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 13:45:23 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/05 15:37:28 by tbrandt          ###   ########.fr       */
+/*   Created: 2022/01/13 18:22:43 by tbrandt           #+#    #+#             */
+/*   Updated: 2022/01/26 00:00:18 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+int	ft_strlen2d(char **str)
+{
+	int	i;
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' & c <= '9') 
-		return (1);
-	else
-		return (0);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	printf("%d\n", ft_isdigit(' '));
-}*/
