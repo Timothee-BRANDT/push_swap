@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -g
 NAME	=	push_swap
 
 SRC		=	main.c			\
@@ -21,6 +21,7 @@ SRC		=	main.c			\
 			push.c			\
 			rotate.c		\
 			create_list.c	\
+			algo.c			\
 
 OBJ		=	$(SRC:%.c=%.o)
 

@@ -30,9 +30,12 @@ int	is_digit(char *str)
 
 int	is_int(char *str)
 {
-	if (ft_strlen(str) > 10 || ft_strcmp(str, "-2147483649") == 0)
+	long long nb;
+
+	nb = ft_atoll(str);
+	if (ft_strlen(str) > 10)
 		return (1);
-	if (ft_strcmp(str, "2147483648") == 0 || ft_strcmp(str, "2147483649") == 0)
+	if (nb < INT_MIN || nb > INT_MAX)
 		return (1);
 	return (0);
 }

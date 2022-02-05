@@ -37,46 +37,53 @@ int main(int argc, char *argv[])
 {
 	char **tab;
 	t_list *a;
-	t_list *b;
+	//t_list *b;
 
 	if (argc == 1)
 		return (0);
 	if(!check_arg(argv))
 		return (0);
 	a = malloc(sizeof(t_list));
-	b = ft_lstnew(20);
-	ft_lstadd_back(&b, ft_lstnew(40));
-	ft_lstadd_back(&b, ft_lstnew(60));
+	//b = ft_lstnew(20);
+	//ft_lstadd_back(&b, ft_lstnew(40));
+	//ft_lstadd_back(&b, ft_lstnew(60));
 	if (argc == 2)
 	{
 		tab = ft_split(argv[1], ' ');
 		if (check_error(tab))
 			return (on_error("Error\n", 0));
-		a = create_a(tab);
-		print_list_a(a);
-		print_list_b(b);
+		int i = 0;
+		while(i < 3)
+			printf("%s\n", tab[i++]);
+		swap_sort(tab);
 		printf("\n");
-		rotate_b(&b);
-		print_list_a(a);
-		print_list_b(b);
+		printf("\n");
+		i = 0;
+		while(i < 3)
+			printf("%s\n", tab[i++]);
+		//a = create_a(tab);
+	//	print_list_a(a);
+	//	printf("\n");
+	//	print_list_b(b);
 	}
 	if (argc > 2)
 	{
 		tab = make_tab(argc, argv);
-		int i = 0;
-		while(i < 4)
-		{
-			printf("%s\n", tab[i++]);
-		}
 		if (check_error(tab))
 			return (on_error("Error\n", 0));
-		a = create_a(tab);
-		print_list_a(a);
-		print_list_b(b);
+		int i = 0;
+		while(i < 4)
+			printf("%s\n", tab[i++]);
+		swap_sort(tab);
 		printf("\n");
-		rotate_b(&b);
-		print_list_a(a);
-		print_list_b(b);
+		printf("\n");
+		i = 0;
+		while(i < 4)
+			printf("%s\n", tab[i++]);
+		//a = create_a(tab);
+	//	print_list_a(a);
+	//	printf("\n");
+	//	print_list_b(b);
 	}
 	return (0);
 }

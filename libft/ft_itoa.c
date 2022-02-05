@@ -31,21 +31,11 @@ int	len(int n)
 	return (len);
 }
 
-char	*overflow(int n)
-{
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	else
-		return (ft_strdup("2147483647"));
-}
-
 char	*ft_itoa(int n)
 {
 	char	*str;
 	int		i;
 
-	if (n == -2147483648 || n == 2147483647)
-		return (overflow(n));
 	str = malloc(sizeof(char) * len(n) + 1);
 	if (!str)
 		return (NULL);
