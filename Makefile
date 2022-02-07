@@ -17,6 +17,7 @@ NAME	=	push_swap
 SRC		=	main.c			\
 			check_error.c	\
 			print_list.c	\
+			utils.c			\
 			swap.c			\
 			push.c			\
 			rotate.c		\

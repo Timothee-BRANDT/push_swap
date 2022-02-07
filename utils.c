@@ -12,51 +12,57 @@
 
 #include "push_swap.h"
 
-void	swap_sort(char **tab)
+int	is_sorted_tab(char **tab)
 {
-	int		i;
-	int		value;
+	int	i;
 
-	while (!is_sorted_tab(tab))
+	i = 0;
+	while(tab[i])
 	{
-		i = 1;
-		while (tab[i])
-		{
-			if (ft_atoi(tab[i]) < ft_atoi(tab[i - 1]))
-			{
-				value = ft_atoi(tab[i - 1]);
-				tab[i - 1] = tab[i];
-				tab[i] = ft_itoa(value);
-			}
-			i++;
-		}
+		if (!tab[i + 1])
+			return (1);
+		if (ft_atoi(tab[i]) > ft_atoi(tab[i + 1]))
+			return (0);
+		i++;
 	}
+	return (1);
 }
 
-void	small_sort(t_list **list_a)
+char	**duplicate_tab(char **tab)
 {
-	t_list	*tmp;
-	int		a;
-	int		b;
-	int		c;
+	char **copy;
+	int	i;
 
-	tmp = *list_a;
-	a = tmp->content;
-	b = tmp->next->content;
-	c = tmp->next->next->content;
-	//while(!is_sorted_tab(a)) // CHECK LIST NOT TAB
+	copy = malloc(sizeof(char *) * ft_strlen2d(tab) + 1);
+	i = 0;
+	while(tab[i])
 	{
-		if (a > b && b < c && a < c)
-			swap_a(list_a);
-		else if (a < b && c < a)
-			reverse_rotate_a(list_a);
-		else if (a > b && b < c)
-			rotate_a(list_a);
-		else if (a > b && b > c)
-			swap_a(list_a);
-		else if (a > b && b < c)
-			reverse_rotate_a(list_a);
-		else if (a < b && b > c && a < c)
-			reverse_rotate_a(list_a);
+		copy[i] = tab[i];
+		i++;
 	}
+	copy[i] = NULL;
+	return (copy);
+}
+
+char	**change_number(char **tab)
+{
+	int	i;
+	int	j;
+	char **sorted;
+
+	sorted = duplicate_tab(tab);
+	swap_sort(sorted);
+	i = 0;
+	while(tab[i])
+	{
+		j = 0;
+		while(sorted[j])
+		{
+			if (ft_atoi(tab[i]) == ft_atoi(sorted[j]))
+				tab[i] = ft_itoa(j);
+			j++;
+		}
+		i++;
+	}
+	return (tab);
 }
