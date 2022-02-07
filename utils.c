@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:28 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/05 17:08:12 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/07 22:21:46 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,20 @@ int	is_sorted_tab(char **tab)
 		if (ft_atoi(tab[i]) > ft_atoi(tab[i + 1]))
 			return (0);
 		i++;
+	}
+	return (1);
+}
+
+int	is_sorted_list(t_list **list)
+{
+	t_list *tmp;
+
+	tmp = *list;
+	while (tmp->next)
+	{
+		if (tmp->content > tmp->next->content)
+			return (0);
+		tmp = tmp->next;
 	}
 	return (1);
 }

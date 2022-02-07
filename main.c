@@ -6,10 +6,19 @@ int	on_error(char *error, int code)
 	return (code);
 }
 
-int	check_arg(char *argv[])
+int	check_void_arg(char *argv[])
 {
-	if (!argv[1][0])
-		return (on_error("Error\n", 0));
+	int	i;
+
+	i = 0;
+	while(argv[i])
+	{
+		if (!argv[1][0])
+			return (0);
+		if (argv[1][i] == ' ')
+			return (0);
+		i++;
+	}
 	return (1);
 }
 
@@ -41,8 +50,8 @@ int main(int argc, char *argv[])
 
 	if (argc == 1)
 		return (0);
-	if(!check_arg(argv))
-		return (0);
+	if(!check_void_arg(argv))
+		return (on_error("Error\n", 0));
 	a = malloc(sizeof(t_list));
 	//b = ft_lstnew(20);
 	//ft_lstadd_back(&b, ft_lstnew(40));
@@ -53,13 +62,10 @@ int main(int argc, char *argv[])
 		if (check_error(tab))
 			return (on_error("Error\n", 0));
 		change_number(tab);
-		int i = 0;
-		while(i < 5)
-			printf("%s\n", tab[i++]);
-		printf("\n");
-		//a = create_a(tab);
-	//	print_list_a(a);
-	//	printf("\n");
+		a = create_a(tab);
+		print_list_a(a);
+		small_sort(&a);
+		print_list_a(a);
 	//	print_list_b(b);
 	}
 	if (argc > 2)
@@ -68,13 +74,10 @@ int main(int argc, char *argv[])
 		if (check_error(tab))
 			return (on_error("Error\n", 0));
 		change_number(tab);
-		int i = 0;
-		while(i < 5)
-			printf("%s\n", tab[i++]);
-		printf("\n");
-		//a = create_a(tab);
-	//	print_list_a(a);
-	//	printf("\n");
+		a = create_a(tab);
+		print_list_a(a);
+		small_sort(&a);
+		print_list_a(a);
 	//	print_list_b(b);
 	}
 	return (0);

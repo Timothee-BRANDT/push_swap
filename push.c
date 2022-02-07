@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:28 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/03 21:00:27 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/07 22:49:36 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	push_a(t_list **a, t_list **b)
 
 	if (!b || !(*b)->next)
 		return ;
+	ft_putstr("sa\n");
 	tmp = NULL;
 	tmp = *b;
 	*b = (*b)->next;
@@ -30,6 +31,7 @@ void	push_b(t_list **a, t_list **b)
 
 	if (!a || !(*a)->next)
 		return ;
+	ft_putstr("sb\n");
 	tmp = NULL;
 	tmp = *a;
 	*a = (*a)->next;
