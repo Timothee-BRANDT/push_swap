@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:28 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/07 22:49:36 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/10 22:33:44 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	push_a(t_list **a, t_list **b)
 {
 	t_list *tmp;
 
-	if (!b || !(*b)->next)
+	if (!b)
 		return ;
-	ft_putstr("sa\n");
+	ft_putstr("pa\n");
 	tmp = NULL;
 	tmp = *b;
 	*b = (*b)->next;
@@ -29,9 +29,9 @@ void	push_b(t_list **a, t_list **b)
 {
 	t_list *tmp;
 
-	if (!a || !(*a)->next)
+	if (!a)
 		return ;
-	ft_putstr("sb\n");
+	ft_putstr("pb\n");
 	tmp = NULL;
 	tmp = *a;
 	*a = (*a)->next;

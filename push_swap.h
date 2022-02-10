@@ -28,5 +28,8 @@ void	reverse_rotate_a(t_list **a);
 void	non_negative(t_list **list);
 char	**change_number(char **tab);
 void	small_sort(t_list **list);
+void	mid_sort(t_list **a, t_list **b, char **tab);
+int		get_smaller(char **tab);
+char	**list_to_tab(t_list *lst);
 
 #endif

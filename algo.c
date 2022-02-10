@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:28 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/07 23:36:52 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/10 22:36:46 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,39 +41,98 @@ void	small_sort(t_list **list)
 	int		c;
 
 	tmp = *list;
-	if (is_sorted_list(&tmp))
-		printf("SORTED\n");
 	a = tmp->content;
 	b = tmp->next->content;
 	c = tmp->next->next->content;
-		while(!is_sorted_list(&tmp))
-		{
-			if (a > b && b < c && a < c)
-			{
-				printf("test 1\n");
-				swap_a(list);
-			}
-			else if (a < b && c < a)
-			{
-				printf("test 2\n");
-				reverse_rotate_a(list);
-			}
-			else if (a > b && b < c)
-			{
-				printf("test 3\n");
-				rotate_a(list);
-			}
-			else if (a > b && b > c)
-			{
-				printf("test 4\n");
-				rotate_a(list);
-				swap_a(list);
-			}
-			else if (a < b && b > c && a < c)
-			{
-				printf("test 5\n");
-				swap_a(list);
-				rotate_a(list);
-			}
-		}
+	if (a > b && b < c && a < c)
+		swap_a(list);
+	else if (a < b && c < a)
+		reverse_rotate_a(list);
+	else if (a > b && b < c)
+		rotate_a(list);
+	else if (a > b && b > c)
+	{
+		rotate_a(list);
+		swap_a(list);
+	}
+	else if (a < b && b > c && a < c)
+	{
+		swap_a(list);
+		rotate_a(list);
+	}
+}
+
+void	push_first_smaller(t_list **a, t_list **b, int smaller)
+{	
+	if (smaller == 1)
+		push_b(a, b);
+	else if (smaller == 2)
+	{
+		rotate_a(a);
+		push_b(a, b);
+	}
+	else if (smaller == 3)
+	{
+		rotate_a(a);
+		rotate_a(a);
+		push_b(a, b);
+	}
+	else if (smaller == 4)
+	{
+		reverse_rotate_a(a);
+		reverse_rotate_a(a);
+		push_b(a, b);
+	}
+	else
+	{
+		reverse_rotate_a(a);
+		push_b(a, b);
+	}
+}
+
+void	push_second_smaller(t_list **a, t_list **b, int smaller)
+{
+	if (smaller == 1)
+		push_b(a, b);
+	else if (smaller == 2)
+	{
+		rotate_a(a);
+		push_b(a, b);
+	}
+	else if (smaller == 3)
+	{
+		rotate_a(a);
+		rotate_a(a);
+		push_b(a, b);
+	}
+	else if (smaller == 4)
+	{
+		reverse_rotate_a(a);
+		push_b(a, b);
+	}
+}
+
+void	mid_sort(t_list **a, t_list **b, char **tab)
+{
+	int	smaller;
+	int	second_smaller;
+	char **second_tab;
+
+	smaller = get_smaller(tab);
+	print_list_a(*a);
+	push_first_smaller(a, b, smaller);
+	print_list_a(*a);
+	print_list_b(*b);
+	second_tab = list_to_tab(*a);
+	second_smaller = get_smaller(second_tab); 
+	printf("second smaller = %d\n", second_smaller);
+	printf("\n");
+	push_second_smaller(a, b, second_smaller);
+	print_list_b(*b);
+	small_sort(a);
+	print_list_a(*a);
+	push_a(a, b);
+	push_a(a, b);
+	print_list_a(*a);
+	print_list_b(*b);
 }
