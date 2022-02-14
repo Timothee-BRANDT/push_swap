@@ -1,48 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/14 18:40:47 by tbrandt           #+#    #+#             */
+/*   Updated: 2022/02/14 19:59:10 by tbrandt          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	on_error(char *error, int code)
-{
-	ft_putstr(error);
-	return (code);
-}
-
-int	check_void_arg(char *argv[])
-{
-	int	i;
-
-	i = 0;
-	while(argv[1][i] && argv[1][i] == ' ')
-	{
-		if (!argv[1][0])
-			return (0);
-		i++;
-	}
-	if (argv[1][i] == '\0')
-		return (0);
-	return (1);
-}
-
-char **make_tab(int argc, char *argv[])
-{
-	char **tab;
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 0;
-	tab = malloc(sizeof(char *) * argc);
-	while(argv[i])
-	{
-		tab[j] = malloc(sizeof(char) * ft_strlen(argv[i]) + 1);
-		tab[j] = argv[i];
-		i++;
-		j++;
-	}
-	tab[j] = NULL;
-	return (tab);
-}
-
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	char **tab;
 	t_list *a;
@@ -54,22 +24,15 @@ int main(int argc, char *argv[])
 		return (on_error("Error\n", 0));
 	a = malloc(sizeof(t_list));
 	if (argc == 2)
-	{
 		tab = ft_split(argv[1], ' ');
-		if (check_error(tab))
-			return (on_error("Error\n", 0));
-		change_number(tab);
-		a = create_a(tab);
-		mid_sort(&a, &b, tab);
-	}
 	if (argc > 2)
-	{
-		tab = make_tab(argc, argv);
-		if (check_error(tab))
-			return (on_error("Error\n", 0));
-		change_number(tab);
-		a = create_a(tab);
-		list_to_tab(a);
-	}
+		tab = argv + 1;
+	if (check_error(tab))
+		return (on_error("Error\n", 0));
+	change_number(tab);
+	a = create_a(tab);
+	if (is_sorted_list(&a))
+		return (0);
+	start_sorting(&a, &b, tab);
 	return (0);
 }

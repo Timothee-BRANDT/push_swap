@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:58 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/10 14:37:32 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/14 19:03:48 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_content(int content)
 {
-	printf("%d\n", content); 
+	printf("%d\n", content);
 }
 
 void	print_list_a(t_list *a)

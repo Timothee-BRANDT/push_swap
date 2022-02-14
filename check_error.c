@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:37 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/05 15:42:22 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/14 19:02:28 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	is_digit(char *str)
 {
 	int	i;
-	i = 0;
 
+	i = 0;
 	if (str[i] == '-')
 		i++;
 	while (str[i])
@@ -30,7 +30,7 @@ int	is_digit(char *str)
 
 int	is_int(char *str)
 {
-	long long nb;
+	long long	nb;
 
 	nb = ft_atoll(str);
 	if (ft_strlen(str) > 10)

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/14 19:05:37 by tbrandt           #+#    #+#             */
+/*   Updated: 2022/02/14 19:06:18 by tbrandt          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	swap_a(t_list **a)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!*a)
 		return ;
@@ -15,7 +27,7 @@ void	swap_a(t_list **a)
 
 void	swap_b(t_list **b)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!*b)
 		return ;
@@ -28,19 +40,19 @@ void	swap_b(t_list **b)
 
 void	swap_both(t_list **a, t_list **b)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!*a || !*b)
 		return ;
 	ft_putstr("ss\n");
-	if(*a)
+	if (*a)
 	{
 		tmp = *a;
 		*a = (*a)->next;
 		tmp->next = (*a)->next;
 		(*a)->next = tmp;
 	}
-	if(*b)
+	if (*b)
 	{
 		tmp = *b;
 		*b = (*b)->next;

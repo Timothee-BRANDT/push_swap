@@ -6,18 +6,24 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:28 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/10 18:54:15 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/14 19:59:03 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	on_error(char *error, int code)
+{
+	ft_putstr(error);
+	return (code);
+}
 
 int	is_sorted_tab(char **tab)
 {
 	int	i;
 
 	i = 0;
-	while(tab[i])
+	while (tab[i])
 	{
 		if (!tab[i + 1])
 			return (1);
@@ -30,7 +36,7 @@ int	is_sorted_tab(char **tab)
 
 int	is_sorted_list(t_list **list)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *list;
 	while (tmp->next)
@@ -44,12 +50,12 @@ int	is_sorted_list(t_list **list)
 
 char	**duplicate_tab(char **tab)
 {
-	char **copy;
-	int	i;
+	char	**copy;
+	int		i;
 
 	copy = malloc(sizeof(char *) * ft_strlen2d(tab) + 1);
 	i = 0;
-	while(tab[i])
+	while (tab[i])
 	{
 		copy[i] = tab[i];
 		i++;
@@ -60,17 +66,17 @@ char	**duplicate_tab(char **tab)
 
 char	**change_number(char **tab)
 {
-	int	i;
-	int	j;
-	char **sorted;
+	int		i;
+	int		j;
+	char	**sorted;
 
 	sorted = duplicate_tab(tab);
 	swap_sort(sorted);
 	i = 0;
-	while(tab[i])
+	while (tab[i])
 	{
 		j = 0;
-		while(sorted[j])
+		while (sorted[j])
 		{
 			if (ft_atoi(tab[i]) == ft_atoi(sorted[j]))
 				tab[i] = ft_itoa(j);

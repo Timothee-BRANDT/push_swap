@@ -6,7 +6,7 @@
 #    By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 15:11:17 by tbrandt           #+#    #+#              #
-#    Updated: 2022/02/10 18:59:25 by tbrandt          ###   ########.fr        #
+#    Updated: 2022/02/14 18:30:22 by tbrandt          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC		=	main.c			\
 			rotate.c		\
 			create_list.c	\
 			algo.c			\
-			five.c			\
+			algo2.c			\
+			utils2.c		\
 
 OBJ		=	$(SRC:%.c=%.o)
 

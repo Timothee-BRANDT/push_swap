@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:17 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/07 23:44:48 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/14 19:05:29 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rotate_a(t_list **a)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!*a || !(*a)->next)
 		return ;
@@ -27,7 +27,7 @@ void	rotate_a(t_list **a)
 
 void	rotate_b(t_list **b)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!*b || !(*b)->next)
 		return ;

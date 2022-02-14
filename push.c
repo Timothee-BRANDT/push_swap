@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:28 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/10 22:33:44 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/14 19:04:05 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push_a(t_list **a, t_list **b)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!b)
 		return ;
@@ -27,7 +27,7 @@ void	push_a(t_list **a, t_list **b)
 
 void	push_b(t_list **a, t_list **b)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!a)
 		return ;
