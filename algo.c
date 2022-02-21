@@ -105,25 +105,32 @@ void	push_first_smaller_four(t_list **a, t_list **b, int smaller)
 	}
 }
 
-/*void	radix_sort(t_list **a, t_list **b)
+void	radix_sort(t_list **a, t_list **b)
 {
+	t_list *tmp;
 	int	size;
 	int	i;
+	int	j;
 
+	tmp = *a;
 	size = ft_lstsize(*a);
 	i = 0;
+	j = 0;
 	while (!is_sorted_list(a))
 	{
 		while (i < size)
 		{
-			if (((*a)->content >> i) &1)
+			if ((tmp->content >> j & 1) == 1)
 				rotate_a(a);
 			else
 				push_b(a, b);
-			(*a) = (*a)->next;
+			tmp = *a;
 			i++;
 		}
 		while (ft_lstsize(*b) > 0)
 			push_a(a, b);
+		tmp = *a;
+		i = 0;
+		j++;
 	}
-}*/
+}

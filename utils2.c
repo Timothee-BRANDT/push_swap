@@ -76,6 +76,6 @@ void	start_sorting(t_list **a, t_list **b, char **tab)
 		sort_four(a, b, tab);
 	else if (ft_lstsize(*a) == 5)
 		mid_sort(a, b, tab);
-//	else
-//		radix_sort(a, b);
+	else
+		radix_sort(a, b);
 }

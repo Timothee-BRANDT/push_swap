@@ -34,5 +34,7 @@ int	main(int argc, char *argv[])
 	if (is_sorted_list(&a))
 		return (0);
 	start_sorting(&a, &b, tab);
+	print_list_a(a);
+	system("leaks push_swap | grep leaked\n");
 	return (0);
 }
