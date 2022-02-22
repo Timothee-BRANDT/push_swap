@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 17:30:20 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/14 19:49:06 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/23 00:08:08 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,20 @@ void	sort_four(t_list **a, t_list **b, char **tab)
 	push_a(a, b);
 }
 
-void	mid_sort(t_list **a, t_list **b, char **tab)
+void	mid_sort(t_list **a, t_list **b)
 {
 	int		smaller;
 	int		second_smaller;
-	char	**second_tab;
+	//char	**second_tab;
 
-	smaller = get_smaller(tab);
+	print_list_a(*a);
+	smaller = get_smaller_pos(a);
+	printf("smaller:%d\n", smaller);
 	push_first_smaller(a, b, smaller);
-	second_tab = list_to_tab(*a);
-	second_smaller = get_smaller(second_tab);
+	//second_tab = list_to_tab(*a);
+	second_smaller = get_smaller_pos(a);
+	//free_tab(second_tab);
+	//free_tab(tab);
 	push_second_smaller(a, b, second_smaller);
 	small_sort(a);
 	push_a(a, b);
