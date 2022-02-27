@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:40:47 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/27 09:33:27 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/27 09:42:31 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char *argv[])
 	a = create_a(tab);
 	if (is_sorted_list(&a))
 		return (0);
-	start_sorting(&a, &b, tab);
+	start_sorting(&a, &b);
 	print_list_a(a);
 	system("leaks push_swap | grep leaked\n");
 	return (0);
