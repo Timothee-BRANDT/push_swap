@@ -53,6 +53,7 @@ char	**duplicate_tab(char **tab)
 	char	**copy;
 	int		i;
 
+	copy = NULL;
 	copy = malloc(sizeof(char *) * ft_strlen2d(tab) + 1);
 	i = 0;
 	while (tab[i])
@@ -60,16 +61,16 @@ char	**duplicate_tab(char **tab)
 		copy[i] = tab[i];
 		i++;
 	}
-	copy[i] = NULL;
 	return (copy);
 }
 
-char	**change_number(char **tab)
+char	**change_number(char **tab, int argc)
 {
 	int		i;
 	int		j;
 	char	**sorted;
 
+	sorted = NULL;
 	sorted = duplicate_tab(tab);
 	swap_sort(sorted);
 	i = 0;
@@ -84,5 +85,7 @@ char	**change_number(char **tab)
 		}
 		i++;
 	}
+	if (argc == 2)
+		free_tab(sorted);
 	return (tab);
 }

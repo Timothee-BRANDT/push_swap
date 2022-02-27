@@ -12,6 +12,19 @@
 
 #include "push_swap.h"
 
+/*void		ft_lstdel(t_list **list)
+{
+	t_list	*tmp;
+
+	while (*list != NULL)
+	{
+		tmp = (*list)->next;
+		free(*list);
+		*list = tmp;
+	}
+	free(*list);
+}*/
+
 int	main(int argc, char *argv[])
 {
 	char **tab;
@@ -22,19 +35,18 @@ int	main(int argc, char *argv[])
 		return (0);
 	if(!check_void_arg(argv))
 		return (on_error("Error\n", 0));
-	a = malloc(sizeof(t_list));
 	if (argc == 2)
 		tab = ft_split(argv[1], ' ');
 	if (argc > 2)
 		tab = argv + 1;
 	if (check_error(tab))
 		return (on_error("Error\n", 0));
-	change_number(tab);
-	a = create_a(tab);
+	change_number(tab, argc);
+	a = create_a(tab, argc);
 	if (is_sorted_list(&a))
 		return (0);
-	start_sorting(&a, &b, tab);
-	print_list_a(a);
+	start_sorting(&a, &b);
+//	print_list_a(a);
 	system("leaks push_swap | grep leaked\n");
 	return (0);
 }

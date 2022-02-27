@@ -50,11 +50,11 @@ void	small_sort(t_list **list)
 	}
 }
 
-void	sort_four(t_list **a, t_list **b, char **tab)
+void	sort_four(t_list **a, t_list **b)
 {
 	int	smaller;
 
-	smaller = get_smaller(tab);
+	smaller = get_smaller_pos(a);
 	push_first_smaller_four(a, b, smaller);
 	small_sort(a);
 	push_a(a, b);
@@ -64,16 +64,10 @@ void	mid_sort(t_list **a, t_list **b)
 {
 	int		smaller;
 	int		second_smaller;
-	//char	**second_tab;
 
-	print_list_a(*a);
 	smaller = get_smaller_pos(a);
-	printf("smaller:%d\n", smaller);
 	push_first_smaller(a, b, smaller);
-	//second_tab = list_to_tab(*a);
 	second_smaller = get_smaller_pos(a);
-	//free_tab(second_tab);
-	//free_tab(tab);
 	push_second_smaller(a, b, second_smaller);
 	small_sort(a);
 	push_a(a, b);

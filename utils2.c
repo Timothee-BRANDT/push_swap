@@ -12,68 +12,28 @@
 
 #include "push_swap.h"
 
-char **list_to_tab(t_list *lst)
-{
-	char	**tab;
-
-	tab = NULL;
-	if (ft_lstsize(lst) == 4)
-	{
-		tab = malloc(sizeof(char *) * ft_lstsize(lst));
-		tab[0] = malloc(sizeof(char) * ft_strlen(ft_itoa(lst->content)));
-		tab[1] = malloc(sizeof(char) * ft_strlen(ft_itoa(lst->next->content)));
-		tab[2] = malloc(sizeof(char) * ft_strlen(ft_itoa(lst->next->next->content)));
-		tab[3] = malloc(sizeof(char) * ft_strlen(ft_itoa(lst->next->next->next->content)));
-		tab[0] = ft_itoa(lst->content);
-		tab[1] = ft_itoa(lst->next->content);
-		tab[2] = ft_itoa(lst->next->next->content);
-		tab[3] = ft_itoa(lst->next->next->next->content);
-	}
-	tab[4] = NULL;
-	return (tab);
-}
-
-int	get_smaller(char **tab)
-{
-	int	i;
-	int pos;
-
-	pos = 0;
-	i = 1;
-	while (tab[i])
-	{
-		if (ft_atoi(tab[i]) < ft_atoi(tab[pos]))
-			pos = i;
-		i++;
-	}
-	pos++;
-	return (pos);
-}
-
 int    get_smaller_pos(t_list **pile)
 {
     t_list  *ptmp;
     int tmp;
 	int pos;
-    int i = 1;
-    ptmp = *pile;
-	pos = 0;
+    int i;
 
-    if (ptmp && ptmp->next != NULL)
-    {
-        tmp = ptmp->content;
-        while (ptmp->next)
-		{
-            i++;
-            ptmp = ptmp->next;
-            if (tmp > ptmp->content)
-            {
-                tmp = ptmp->content;
-                pos = i;
-            }
-        }
-        i = 0;
-    }
+   	i = 0;
+	pos = 0;
+    ptmp = *pile;
+   	tmp = ptmp->content;
+    while (ptmp->next)
+	{
+    	i++;
+        ptmp = ptmp->next;
+		if (tmp > ptmp->content)
+        {
+			tmp = ptmp->content;
+			pos = i;
+		}
+	}
+	i = 0;
 	return (pos);
 }
 
@@ -93,14 +53,14 @@ int	check_void_arg(char *argv[])
 	return (1);
 }
 
-void	start_sorting(t_list **a, t_list **b, char **tab)
+void	start_sorting(t_list **a, t_list **b)
 {
 	if (ft_lstsize(*a) == 2)
 		sort_two(a);
 	if (ft_lstsize(*a) == 3)
 		small_sort(a);
 	else if (ft_lstsize(*a) == 4)
-		sort_four(a, b, tab);
+		sort_four(a, b);
 	else if (ft_lstsize(*a) == 5)
 		mid_sort(a, b);
 	else
@@ -111,11 +71,9 @@ void	free_tab(char **tab)
 {
 	int	i;
 
-	i = 0;
-	while (tab[i])
-	{
+	i = -1;
+	while (tab[++i])
 		free(tab[i]);
-		i++;
-	}
 	free(tab);
+	tab = 0;
 }

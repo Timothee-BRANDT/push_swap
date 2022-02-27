@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_list	*create_a(char **tab)
+t_list	*create_a(char **tab, int argc)
 {
 	t_list	*a;
 	int		i;
@@ -21,5 +21,7 @@ t_list	*create_a(char **tab)
 	a = ft_lstnew(ft_atoi(tab[i]));
 	while (tab[++i])
 		ft_lstadd_back(&a, ft_lstnew(ft_atoi(tab[i])));
+	if (argc == 2)
+		free_tab(tab);
 	return (a);
 }

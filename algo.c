@@ -15,8 +15,9 @@
 void	swap_sort(char **tab)
 {
 	int		i;
-	int		value;
+	char *value;
 
+	value = NULL;
 	while (!is_sorted_tab(tab))
 	{
 		i = 1;
@@ -24,9 +25,9 @@ void	swap_sort(char **tab)
 		{
 			if (ft_atoi(tab[i]) < ft_atoi(tab[i - 1]))
 			{
-				value = ft_atoi(tab[i - 1]);
+				value = tab[i - 1];
 				tab[i - 1] = tab[i];
-				tab[i] = ft_itoa(value);
+				tab[i] = value;
 			}
 			i++;
 		}
@@ -35,26 +36,26 @@ void	swap_sort(char **tab)
 
 void	push_first_smaller(t_list **a, t_list **b, int smaller)
 {	
-	if (smaller == 1)
+	if (smaller == 0)
 		push_b(a, b);
+	else if (smaller == 1)
+	{
+		rotate_a(a);
+		push_b(a, b);
+	}
 	else if (smaller == 2)
 	{
+		rotate_a(a);
 		rotate_a(a);
 		push_b(a, b);
 	}
 	else if (smaller == 3)
 	{
-		rotate_a(a);
-		rotate_a(a);
+		reverse_rotate_a(a);
+		reverse_rotate_a(a);
 		push_b(a, b);
 	}
 	else if (smaller == 4)
-	{
-		reverse_rotate_a(a);
-		reverse_rotate_a(a);
-		push_b(a, b);
-	}
-	else
 	{
 		reverse_rotate_a(a);
 		push_b(a, b);
@@ -63,20 +64,20 @@ void	push_first_smaller(t_list **a, t_list **b, int smaller)
 
 void	push_second_smaller(t_list **a, t_list **b, int smaller)
 {
-	if (smaller == 1)
+	if (smaller == 0)
 		push_b(a, b);
+	else if (smaller == 1)
+	{
+		rotate_a(a);
+		push_b(a, b);
+	}
 	else if (smaller == 2)
 	{
+		rotate_a(a);
 		rotate_a(a);
 		push_b(a, b);
 	}
 	else if (smaller == 3)
-	{
-		rotate_a(a);
-		rotate_a(a);
-		push_b(a, b);
-	}
-	else if (smaller == 4)
 	{
 		reverse_rotate_a(a);
 		push_b(a, b);
@@ -85,20 +86,20 @@ void	push_second_smaller(t_list **a, t_list **b, int smaller)
 
 void	push_first_smaller_four(t_list **a, t_list **b, int smaller)
 {
-	if (smaller == 1)
+	if (smaller == 0)
 		push_b(a, b);
+	else if (smaller == 1)
+	{
+		rotate_a(a);
+		push_b(a, b);
+	}
 	else if (smaller == 2)
 	{
+		rotate_a(a);
 		rotate_a(a);
 		push_b(a, b);
 	}
 	else if (smaller == 3)
-	{
-		rotate_a(a);
-		rotate_a(a);
-		push_b(a, b);
-	}
-	else
 	{
 		reverse_rotate_a(a);
 		push_b(a, b);
