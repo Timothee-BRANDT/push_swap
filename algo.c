@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:28 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/22 23:57:21 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/27 09:36:40 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	swap_sort(char **tab)
 {
 	int		i;
-	char *value;
+	char	*value;
 
 	value = NULL;
 	while (!is_sorted_tab(tab))
@@ -36,23 +36,45 @@ void	swap_sort(char **tab)
 
 void	push_first_smaller(t_list **a, t_list **b, int smaller)
 {	
-	if (smaller == 0)
+	if (smaller == 1)
 		push_b(a, b);
-	else if (smaller == 1)
-	{
-		rotate_a(a);
-		push_b(a, b);
-	}
 	else if (smaller == 2)
 	{
-		rotate_a(a);
 		rotate_a(a);
 		push_b(a, b);
 	}
 	else if (smaller == 3)
 	{
+		rotate_a(a);
+		rotate_a(a);
+		push_b(a, b);
+	}
+	else if (smaller == 4)
+	{
 		reverse_rotate_a(a);
 		reverse_rotate_a(a);
+		push_b(a, b);
+	}
+	else
+	{
+		reverse_rotate_a(a);
+		push_b(a, b);
+	}
+}
+
+void	push_second_smaller(t_list **a, t_list **b, int smaller)
+{
+	if (smaller == 1)
+		push_b(a, b);
+	else if (smaller == 2)
+	{
+		rotate_a(a);
+		push_b(a, b);
+	}
+	else if (smaller == 3)
+	{
+		rotate_a(a);
+		rotate_a(a);
 		push_b(a, b);
 	}
 	else if (smaller == 4)
@@ -62,44 +84,22 @@ void	push_first_smaller(t_list **a, t_list **b, int smaller)
 	}
 }
 
-void	push_second_smaller(t_list **a, t_list **b, int smaller)
-{
-	if (smaller == 0)
-		push_b(a, b);
-	else if (smaller == 1)
-	{
-		rotate_a(a);
-		push_b(a, b);
-	}
-	else if (smaller == 2)
-	{
-		rotate_a(a);
-		rotate_a(a);
-		push_b(a, b);
-	}
-	else if (smaller == 3)
-	{
-		reverse_rotate_a(a);
-		push_b(a, b);
-	}
-}
-
 void	push_first_smaller_four(t_list **a, t_list **b, int smaller)
 {
-	if (smaller == 0)
+	if (smaller == 1)
 		push_b(a, b);
-	else if (smaller == 1)
-	{
-		rotate_a(a);
-		push_b(a, b);
-	}
 	else if (smaller == 2)
 	{
-		rotate_a(a);
 		rotate_a(a);
 		push_b(a, b);
 	}
 	else if (smaller == 3)
+	{
+		rotate_a(a);
+		rotate_a(a);
+		push_b(a, b);
+	}
+	else
 	{
 		reverse_rotate_a(a);
 		push_b(a, b);

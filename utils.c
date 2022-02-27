@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:28 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/22 23:56:34 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/27 09:36:33 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ char	**duplicate_tab(char **tab)
 	char	**copy;
 	int		i;
 
-	copy = NULL;
 	copy = malloc(sizeof(char *) * ft_strlen2d(tab) + 1);
 	i = 0;
 	while (tab[i])
@@ -61,6 +60,7 @@ char	**duplicate_tab(char **tab)
 		copy[i] = tab[i];
 		i++;
 	}
+	copy[i] = NULL;
 	return (copy);
 }
 
@@ -70,7 +70,6 @@ char	**change_number(char **tab, int argc)
 	int		j;
 	char	**sorted;
 
-	sorted = NULL;
 	sorted = duplicate_tab(tab);
 	swap_sort(sorted);
 	i = 0;

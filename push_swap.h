@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 19:04:39 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/22 23:46:52 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/02/27 09:39:16 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		is_sorted_tab(char **tab);
 int		is_sorted_list(t_list **list);
 int		on_error(char *error, int code);
 int		check_void_arg(char *argv[]);
-t_list	*create_a(char **tab, int argc);
+t_list	*create_a(char **tab);
 void	start_sorting(t_list **a, t_list **b);
 void	free_tab(char **tab);
 void	swap_sort(char **tab);
@@ -52,5 +52,6 @@ int		get_smaller_pos(t_list **a);
 void	push_first_smaller(t_list **a, t_list **b, int smaller);
 void	push_second_smaller(t_list **a, t_list **b, int smaller);
 void	push_first_smaller_four(t_list **a, t_list **b, int smaller);
+char	**list_to_tab(t_list *lst);
 
 #endif
