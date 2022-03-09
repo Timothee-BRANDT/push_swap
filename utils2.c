@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:54:23 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/27 09:39:59 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/03/09 18:36:23 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int    get_smaller_pos(t_list **pile)
 	int pos;
     int i = 1;
     ptmp = *pile;
-	pos = 0;
+	pos = 1;
 
     if (ptmp && ptmp->next != NULL)
     {
@@ -79,5 +79,6 @@ void	free_tab(char **tab)
 		free(tab[i]);
 		i++;
 	}
+	free(tab[i]);
 	free(tab);
 }

@@ -6,35 +6,85 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:40:47 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/27 09:42:31 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/03/09 19:37:20 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	get_size(char *argv[])
+{
+	int	i;
+	int sizer;
+
+	i = 1;
+	sizer = 0;
+	while(argv[i])
+	{
+		sizer += size(argv[i]);
+		i++;
+	}
+	return (sizer);
+}
+
+char *make_string(char *argv[], int argc)
+{
+	int	i;
+	int	j;
+	int	k;
+	char *str;
+
+	str = malloc(sizeof(char) * (get_size(argv)) + (argc - 1));
+	i = 1;
+	k = 0;
+	while(argv[i])
+	{
+		j = 0;
+		while(argv[i][j])
+		{
+			if (str[k] == ' ')
+				k++;
+			str[k] = argv[i][j];
+			j++;
+			k++;
+		}
+		str[k] = ' ';
+		i++;
+	}
+	str[k] = '\0';
+	return (str);
+}
+
 int	main(int argc, char *argv[])
 {
 	char **tab;
+	char *str;
 	t_list *a;
 	t_list *b;
+	b = NULL;
 
 	if (argc == 1)
 		return (0);
 	if(!check_void_arg(argv))
 		return (on_error("Error\n", 0));
-	a = malloc(sizeof(t_list));
 	if (argc == 2)
 		tab = ft_split(argv[1], ' ');
 	if (argc > 2)
-		tab = argv + 1;
+	{
+		str = make_string(argv, argc);
+		tab = ft_split(str, ' ');
+		free(str);
+	}
 	if (check_error(tab))
 		return (on_error("Error\n", 0));
-	change_number(tab, argc);
+	change_number(tab);
 	a = create_a(tab);
 	if (is_sorted_list(&a))
 		return (0);
+	print_list_a(a);
 	start_sorting(&a, &b);
 	print_list_a(a);
-	system("leaks push_swap | grep leaked\n");
+	//while(1);
+	system("leaks push_swap\n");
 	return (0);
 }

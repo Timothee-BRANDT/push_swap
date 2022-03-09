@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_list.c                                      :+:      :+:    :+:   */
+/*   strlen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 21:53:13 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/03/09 18:11:34 by tbrandt          ###   ########.fr       */
+/*   Created: 2022/03/09 16:06:44 by tbrandt           #+#    #+#             */
+/*   Updated: 2022/03/09 16:08:34 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-t_list	*create_a(char **tab)
+int	size(char *str)
 {
-	t_list	*a;
-	int		i;
-
+	int	i;
 	i = 0;
-	a = ft_lstnew(ft_atoi(tab[i]));
-	while (tab[++i])
-		ft_lstadd_back(&a, ft_lstnew(ft_atoi(tab[i])));
-	free_tab(tab);
-	return (a);
+	while(str[i])
+		i++;
+	return (i);
 }

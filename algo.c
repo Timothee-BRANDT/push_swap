@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:28 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/27 09:36:40 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/03/09 18:36:48 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	push_first_smaller(t_list **a, t_list **b, int smaller)
 		reverse_rotate_a(a);
 		push_b(a, b);
 	}
-	else
+	else if (smaller == 5)
 	{
 		reverse_rotate_a(a);
 		push_b(a, b);
@@ -99,7 +99,7 @@ void	push_first_smaller_four(t_list **a, t_list **b, int smaller)
 		rotate_a(a);
 		push_b(a, b);
 	}
-	else
+	else if (smaller == 4)
 	{
 		reverse_rotate_a(a);
 		push_b(a, b);

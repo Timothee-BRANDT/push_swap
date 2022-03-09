@@ -6,12 +6,12 @@
 #    By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 15:11:17 by tbrandt           #+#    #+#              #
-#    Updated: 2022/02/14 18:30:22 by tbrandt          ###   ########.fr        #
+#    Updated: 2022/03/08 16:05:01 by tbrandt          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -g
+CFLAGS	=	-Wall -Wextra -Werror -g #-fsanitize=address
 NAME	=	push_swap
 
 SRC		=	main.c			\

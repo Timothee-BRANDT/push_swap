@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:28 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/27 09:36:33 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/03/09 19:37:18 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	**duplicate_tab(char **tab)
 	return (copy);
 }
 
-char	**change_number(char **tab, int argc)
+char	**change_number(char **tab)
 {
 	int		i;
 	int		j;
@@ -79,12 +79,16 @@ char	**change_number(char **tab, int argc)
 		while (sorted[j])
 		{
 			if (ft_atoi(tab[i]) == ft_atoi(sorted[j]))
+			{
+				if (tab[i])
+					free(tab[i]);
 				tab[i] = ft_itoa(j);
+			}
 			j++;
 		}
 		i++;
 	}
-	if (argc == 2)
-		free_tab(sorted);
+	//free_tab(sorted);
+	free(sorted);
 	return (tab);
 }

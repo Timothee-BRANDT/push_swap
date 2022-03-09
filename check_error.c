@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:37 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/02/14 19:02:28 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/03/08 16:44:04 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	check_error(char **tab)
 			return (1);
 		if (is_double(tab))
 			return (1);
+//		free(tab[i]);
 		i++;
 	}
 	return (0);
