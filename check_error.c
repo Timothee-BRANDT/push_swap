@@ -17,6 +17,8 @@ int	is_digit(char *str)
 	int	i;
 
 	i = 0;
+	if (str[i] == '-' && str[i + 1] == '\0')
+		return (1);
 	if (str[i] == '-')
 		i++;
 	while (str[i])

@@ -61,8 +61,8 @@ int	main(int argc, char *argv[])
 	char *str;
 	t_list *a;
 	t_list *b;
-	b = NULL;
 
+	b = NULL;
 	if (argc == 1)
 		return (0);
 	if(!check_void_arg(argv))
@@ -81,10 +81,6 @@ int	main(int argc, char *argv[])
 	a = create_a(tab);
 	if (is_sorted_list(&a))
 		return (0);
-	print_list_a(a);
 	start_sorting(&a, &b);
-	print_list_a(a);
-	//while(1);
-	system("leaks push_swap\n");
 	return (0);
 }

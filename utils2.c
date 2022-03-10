@@ -21,8 +21,8 @@ int    get_smaller_pos(t_list **pile)
     ptmp = *pile;
 	pos = 1;
 
-    if (ptmp && ptmp->next != NULL)
-    {
+//    if (ptmp && ptmp->next != NULL)
+  //  {
         tmp = ptmp->content;
         while (ptmp->next)
 		{
@@ -35,7 +35,7 @@ int    get_smaller_pos(t_list **pile)
             }
         }
         i = 0;
-    }
+   // }
 	return (pos);
 }
 
