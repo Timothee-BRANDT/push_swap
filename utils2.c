@@ -6,36 +6,34 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:54:23 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/03/09 18:36:23 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/03/14 17:19:27 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int    get_smaller_pos(t_list **pile)
+int	get_smaller_pos(t_list **pile)
 {
-    t_list  *ptmp;
-    int tmp;
-	int pos;
-    int i = 1;
-    ptmp = *pile;
-	pos = 1;
+	t_list	*ptmp;
+	int		tmp;
+	int		pos;
+	int		i;
 
-//    if (ptmp && ptmp->next != NULL)
-  //  {
-        tmp = ptmp->content;
-        while (ptmp->next)
+	ptmp = *pile;
+	tmp = ptmp->content;
+	pos = 1;
+	i = 1;
+	while (ptmp->next)
+	{
+		i++;
+		ptmp = ptmp->next;
+		if (tmp > ptmp->content)
 		{
-            i++;
-            ptmp = ptmp->next;
-            if (tmp > ptmp->content)
-            {
-                tmp = ptmp->content;
-                pos = i;
-            }
-        }
-        i = 0;
-   // }
+			tmp = ptmp->content;
+			pos = i;
+		}
+	}
+	i = 0;
 	return (pos);
 }
 
@@ -44,7 +42,7 @@ int	check_void_arg(char *argv[])
 	int	i;
 
 	i = 0;
-	while(argv[1][i] && argv[1][i] == ' ')
+	while (argv[1][i] && argv[1][i] == ' ')
 	{
 		if (!argv[1][0])
 			return (0);

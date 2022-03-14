@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:28 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/03/09 19:37:18 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/03/14 17:17:44 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	**duplicate_tab(char **tab)
 	{
 		copy[i] = malloc(sizeof(char) * ft_strlen(tab[i]) + 1);
 		j = 0;
-		while(tab[i][j])
+		while (tab[i][j])
 		{
 			copy[i][j] = tab[i][j];
 			j++;

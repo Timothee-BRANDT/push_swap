@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:40:47 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/03/09 19:37:20 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/03/14 17:20:29 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int	get_size(char *argv[])
 {
 	int	i;
-	int sizer;
+	int	sizer;
 
 	i = 1;
 	sizer = 0;
-	while(argv[i])
+	while (argv[i])
 	{
 		sizer += size(argv[i]);
 		i++;
@@ -27,20 +27,20 @@ int	get_size(char *argv[])
 	return (sizer);
 }
 
-char *make_string(char *argv[], int argc)
+char	*make_string(char *argv[], int argc)
 {
-	int	i;
-	int	j;
-	int	k;
-	char *str;
+	char	*str;
+	int		i;
+	int		j;
+	int		k;
 
 	str = malloc(sizeof(char) * (get_size(argv)) + (argc - 1));
 	i = 1;
 	k = 0;
-	while(argv[i])
+	while (argv[i])
 	{
 		j = 0;
-		while(argv[i][j])
+		while (argv[i][j])
 		{
 			if (str[k] == ' ')
 				k++;
@@ -57,15 +57,14 @@ char *make_string(char *argv[], int argc)
 
 int	main(int argc, char *argv[])
 {
-	char **tab;
-	char *str;
-	t_list *a;
-	t_list *b;
+	char	**tab;
+	char	*str;
+	t_list	*a;
+	t_list	*b;
 
-	b = NULL;
 	if (argc == 1)
 		return (0);
-	if(!check_void_arg(argv))
+	if (!check_void_arg(argv))
 		return (on_error("Error\n", 0));
 	if (argc == 2)
 		tab = ft_split(argv[1], ' ');

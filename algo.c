@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:46:28 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/03/09 18:36:48 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/03/14 17:00:26 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,10 @@ void	push_first_smaller_four(t_list **a, t_list **b, int smaller)
 
 void	radix_sort(t_list **a, t_list **b)
 {
-	t_list *tmp;
-	int	size;
-	int	i;
-	int	j;
+	t_list	*tmp;
+	int		size;
+	int		i;
+	int		j;
 
 	tmp = *a;
 	size = ft_lstsize(*a);
@@ -119,14 +119,13 @@ void	radix_sort(t_list **a, t_list **b)
 	j = 0;
 	while (!is_sorted_list(a))
 	{
-		while (i < size)
+		while (i++ < size)
 		{
 			if ((tmp->content >> j & 1) == 1)
 				rotate_a(a);
 			else
 				push_b(a, b);
 			tmp = *a;
-			i++;
 		}
 		while (ft_lstsize(*b) > 0)
 			push_a(a, b);
