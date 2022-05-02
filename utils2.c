@@ -6,7 +6,7 @@
 /*   By: tbrandt <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:54:23 by tbrandt           #+#    #+#             */
-/*   Updated: 2022/03/14 17:19:27 by tbrandt          ###   ########.fr       */
+/*   Updated: 2022/05/02 11:38:34 by tbrandt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,22 @@ int	get_smaller_pos(t_list **pile)
 int	check_void_arg(char *argv[])
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (argv[1][i] && argv[1][i] == ' ')
+	j = 1;
+	while(argv[j])
 	{
-		if (!argv[1][0])
+		while (argv[j][i] && argv[1][i] == ' ')
+		{
+			if (!argv[j][0])
+				return (0);
+			i++;
+		}
+		if (argv[j][i] == '\0')
 			return (0);
-		i++;
+		j++;
 	}
-	if (argv[1][i] == '\0')
-		return (0);
 	return (1);
 }
 
